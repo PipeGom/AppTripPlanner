@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:trip_planner/controllers/viajeProvider.dart';
+import 'package:trip_planner/pages/Landing.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => viajeProvider()),
+  ], child: MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -9,11 +14,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+        body: Center(child: LandingPage()),
       ),
     );
   }
