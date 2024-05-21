@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trip_planner/controllers/viajeProvider.dart';
+import 'package:trip_planner/pages/PageCreateTrip.dart';
 
 class LandingPage extends StatelessWidget {
   @override
@@ -26,7 +27,11 @@ class LandingPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Add logic to navigate to the page where you can add new trips
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ViajeForm(),
+                  ),
+                );
               },
               child: Text('Add Trip'),
             ),
